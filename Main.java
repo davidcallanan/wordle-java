@@ -12,14 +12,7 @@ import javax.swing.*;
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		Game m = new Game();
-
-		new Thread() {
-			@Override
-			public void run() {
-				m.gameloop();
-			}
-		}.start();
+		new Game();
 	}
 }
 
@@ -239,24 +232,6 @@ class Game {
 	}
 
 	void update() {
-	}
-
-	public void gameloop() {
-		long prev = System.currentTimeMillis();
-		double fps = 60;
-		double ms = 1000f / fps;
-		double delta = 0;
-
-		while (true) {
-			long now = System.currentTimeMillis();
-			delta += now - prev;
-			prev = now;
-
-			while (delta >= ms) {
-				update();
-				delta -= ms;
-			}
-		}
 	}
 
 	String getRandomElement(List<String> elements) {
